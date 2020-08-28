@@ -41,3 +41,11 @@ jobs:
         run: docker-compose run app bundle exec rails db:create db:migrate
       - name: Run tests
         run: docker-compose run app bundle exec rspec
+      - name: Deploy to Heroku
+        uses: AkhileshNS/heroku-deploy@v3.4.6
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "rails-currency" #Must be unique in Heroku
+          heroku_email: "jovictor.miguel@gmail.com"
+          usedocker: true
+
