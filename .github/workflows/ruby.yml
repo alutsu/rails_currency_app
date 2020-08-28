@@ -28,6 +28,6 @@ jobs:
       with:
         ruby-version: 2.6.5
     - name: Install dependencies
-      run: bundle install
+      run: docker-compose run --rm app bundle install
     - name: Run tests
-      run: bundle exec rspec
+      run: docker-compose run --rm app bundle exec rspec
